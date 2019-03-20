@@ -1,0 +1,19 @@
+/**index.wxss**/
+.main{
+  margin-top:20rpx;
+  background: #e8e8e8;
+}
+.main:last-child{
+  margin-bottom:20rpx;
+}
+.top{
+  height: 200rpx;
+  line-height: 200rpx;
+}
+.mid_num{
+  padding:20rpx 0;
+  font-size:40rpx;
+}
+.mid_name{
+   padding:20rpx 0;
+}

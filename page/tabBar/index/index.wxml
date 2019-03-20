@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<view class="main top tc font36">
+  普惠中国宣传图
+</view>
+<view class="main mid tc">
+  <text class="padding_tb10">建行市民快贷</text>
+  <view class="average mid_num">
+    <view class="font40">50万</view>
+    <view class="font40">4.56%</view>
+    <view class="font40">12个月</view>
+  </view>
+  <view class="average mid_name">
+    <view>最高额度</view>
+    <view>贷款利率</view>
+    <view>贷款期限</view>
+  </view>
+</view>
+<view class="main mid tc">
+  <text class="padding_tb10">建行市民快贷</text>
+  <view class="average mid_num">
+    <view class="font40">50万</view>
+    <view class="font40">4.56%</view>
+    <view class="font40">12个月</view>
+  </view>
+  <view class="average mid_name">
+    <view>最高额度</view>
+    <view>贷款利率</view>
+    <view>贷款期限</view>
+  </view>
+</view>
+<view class="main mid tc">
+  <text class="padding_tb10">建行市民快贷</text>
+  <view class="average mid_num">
+    <view class="font40">50万</view>
+    <view class="font40">4.56%</view>
+    <view class="font40">12个月</view>
+  </view>
+  <view class="average mid_name">
+    <view>最高额度</view>
+    <view>贷款利率</view>
+    <view>贷款期限</view>
+  </view>
+</view>
+<view class="main mid tc">
+  <text class="padding_tb10">建行市民快贷</text>
+  <view class="average mid_num">
+    <view class="font40">50万</view>
+    <view class="font40">4.56%</view>
+    <view class="font40">12个月</view>
+  </view>
+  <view class="average mid_name">
+    <view>最高额度</view>
+    <view>贷款利率</view>
+    <view>贷款期限</view>
+  </view>
+</view>
