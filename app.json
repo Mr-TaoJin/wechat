@@ -5,8 +5,8 @@
     "page/auth/auth"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#2c8ff4",
-    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#fff",
     "backgroundTextStyle": "dark"
   },

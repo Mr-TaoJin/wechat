@@ -114,7 +114,7 @@ function get(params, callBack, errorCallback, data) {
         callBack(res.data);
       } else if (res.data.status == 10000) {
         wx.navigateTo({
-          url: '/page/member/pages/login/login'
+          url: '/page/user/pages/login/login'
         })
       } else {
         if (errorCallback) {
@@ -169,7 +169,7 @@ function post(params, callBack, errorCallback, data) {
         callBack(res.data);
       } else if (res.data.status == 1002) {
         wx.navigateTo({
-          url: '/page/member/pages/login/login'
+          url: '/page/user/pages/login/login'
         })
       } else {
         if (errorCallback) {

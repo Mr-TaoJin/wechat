@@ -1,2 +1,15 @@
 <!--pages/user/pages/login/login.wxml-->
-<text>pages/user/pages/login/login.wxml</text>
+<view class="wrapper login">
+  <view class="tit">
+    <view>您好，</view>
+    <view>欢迎来到互联网风控平台</view>
+  </view>
+  <view class="entry">
+    <view class="user">
+      <input type="text" value="{{tel}}" maxlength="11" focus='{true}' bindinput="listenerUsernameInput" placeholder="请输入您的手机号" />
+    </view>
+    <view class="password">
+      <input type="password" value="{{password}}" focus='{true}' placeholder='请输入登录密码'></input>
+    </view>
+  </view>
+</view>

@@ -1,1 +1,35 @@
 /* pages/user/pages/login/login.wxss */
+.login{
+  padding:20rpx 50rpx;
+
+}
+.login .tit>view{
+  color:#010102;
+  font-size:44rpx;
+  margin-bottom:20rpx;
+}
+/* .login_input{
+}
+.password input,
+.user input{
+  margin-top:20rpx;
+  height: 100rpx;
+  font-size:30rpx;
+  border-bottom:2rpx solid #EDEDED;z
+  color:#010102;
+  position: relative;
+} */
+.entry>view{
+  height:100rpx;
+  line-height:100rpx;
+  font-size:30rpx;
+  color:#010102;
+  position:relative;
+  border-bottom:1px solid #EDEDED;
+}
+.entry>view input {
+  height: 100%;
+  width:480rpx;
+  line-height:normal;
+  padding-left:5rpx;
+}
