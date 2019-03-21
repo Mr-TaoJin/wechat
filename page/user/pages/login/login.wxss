@@ -8,17 +8,6 @@
   font-size:44rpx;
   margin-bottom:20rpx;
 }
-/* .login_input{
-}
-.password input,
-.user input{
-  margin-top:20rpx;
-  height: 100rpx;
-  font-size:30rpx;
-  border-bottom:2rpx solid #EDEDED;z
-  color:#010102;
-  position: relative;
-} */
 .entry>view{
   height:100rpx;
   line-height:100rpx;
