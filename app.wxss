@@ -77,6 +77,7 @@ text,view{ font-size: 26rpx; font-family: Microsoft YaHei; color: #333;}
 .mask{ position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0, 0, 0, 0.5); z-index:15;}
 .no_data{width:60%; margin: 100rpx auto; display:block; }
 /*字体图标默认大小*/
+@import "./utils/font/style.wxss";
 [class^="i_"], [class*=" i_"] {
   font-size:36rpx;
 }

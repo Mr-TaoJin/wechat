@@ -1,11 +1,70 @@
-// pages/user/pages/login/login.js
+var valid = require('../../../../utils/valid.js');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    param: {
+      mobile: '',
+      password: '',
+    },
+    type_pw: 'password',
+  },
+  //监听input (手机号输入)
+  listenerInput(e) {
+    let value = e.detail.value || '';
+    let row = e.currentTarget.dataset.row;
+    this.setData({
+      [row]: value
+    })
+  },
+  //切换密码状态
+  showBtnClick: function () {
+    if (this.data.type_pw == 'password') {
+      this.setData({
+        "type_pw": 'text'
+      })
+    } else {
+      this.setData({
+        "type_pw": 'password'
+      })
+    }
+  },
+  //用户密码输入
+  listenerPasswordInput: function (e) {
+    var password = e.detail.value;
+    this.setData({
+      "param.password": password
+    })
+  },
+  //移除密码
+  resetBtnclicklm: function () {
+    this.setData({
+      "param.password": ''
+    })
+  },
 
+  //检验
+  check() {
+    let error_info = '';
+    console.log(!valid.default.check_mobile(this.data.param.mobile))
+    if (!valid.default.check_mobile(this.data.param.mobile)) {
+      error_info = '请输入正确的手机号';
+    }else if (this.data.param.password.length <= 8) {
+      error_info = '密码应大于8位';
+    }
+    if (error_info) {
+      wx.showToast({
+        title: error_info,
+        icon: 'none'
+      })
+      return false;
+    }
+    return true;
+  },
+  //登录
+  mobile_login:function(){
+    if (!this.check()) return;
   },
 
   /**

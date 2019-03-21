@@ -6,10 +6,20 @@
   </view>
   <view class="entry">
     <view class="user">
-      <input type="text" value="{{tel}}" maxlength="11" focus='{true}' bindinput="listenerUsernameInput" placeholder="请输入您的手机号" />
+      <input type="text" value="{{param.mobile}}" maxlength="11" bindinput="listenerInput" data-row="param.mobile" placeholder="请输入您的手机号" />
     </view>
     <view class="password">
-      <input type="password" value="{{password}}" focus='{true}' placeholder='请输入登录密码'></input>
+      <input type="password" wx:if="{{type_pw == 'password'}}" value="{{param.password}}" bindinput="listenerPasswordInput" placeholder='请输入登录密码'></input>
+      <input type="text" wx:if="{{type_pw == 'text'}}" value="{{param.password}}" bindinput="listenerPasswordInput" placeholder='请输入登录密码'></input>
+
+      <text wx:if="{{param.password.length>0}}" bindtap="resetBtnclicklm" class="delete i_close_big"></text>
+      <text wx:if="{{param.password.length>0}}" class="t_line"></text>
+      <text bindtap="showBtnClick" data-type="mobile" class="{{type_pw == 'text' ? 'i_open_eye' : 'i_eye_close' }} icon_eye"></text>
     </view>
+  </view>
+  <button bindtap="mobile_login" class="{{param.password.length>8?'checked':''}} login_btn ">登  录</button>
+  <view class="average login_link">
+    <view>立即注册</view>
+    <view class="tr">忘记密码</view>
   </view>
 </view>
