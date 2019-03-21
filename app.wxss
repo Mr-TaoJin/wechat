@@ -16,6 +16,7 @@ text,view{ font-size: 26rpx; font-family: Microsoft YaHei; color: #333;}
 .font32{font-size:32rpx;}
 .font36{font-size:36rpx;}
 .font40{font-size:40rpx;}
+.font44{font-size:44rpx;}
 .fl { float: left; }
 .fr { float: right; }
 .tl { text-align: left; }
@@ -54,6 +55,7 @@ text,view{ font-size: 26rpx; font-family: Microsoft YaHei; color: #333;}
 .mt5{ margin-top: 5rpx;}
 .mt10{ margin-top: 10rpx;}
 .mt15{ margin-top: 15rpx;}
+.mt20{ margin-top: 20rpx;}
 .mb10{ margin-bottom: 10rpx;}
 .ml10{ margin-left: 10rpx;}
 .mr10{ margin-right: 10rpx;}

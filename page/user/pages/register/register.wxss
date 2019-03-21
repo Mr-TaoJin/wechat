@@ -1,0 +1,90 @@
+/* page/user/pages/register/register.wxss */
+@import "../common.wxss";
+
+.register{
+  padding: 60rpx 50rpx 0 50rpx;
+}
+.register .tit>text{
+  display: block;
+  line-height: 60rpx;
+  font-family: PingFangSC-Medium;
+  color: #010102;
+}
+.register .main .input_view{
+  display: block;
+  height: 108rpx;
+  padding-top: 40rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #EDEDED;
+}
+.register .main .input_view input{
+  display: block;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color:rgba(1,1,2,1);
+  font-family: PingFangSC-Medium;
+  float: left;
+  width: 480rpx;
+}
+.register .main .input_view .code{
+  display: block;
+  height: 52rpx;
+  line-height: 52rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  float: right;
+}
+.register .main .input_view .getCode{
+  color:rgba(245,73,73,1);
+}
+.register .main .input_view .sedCode{
+  color:rgba(200,200,208,1);
+}
+.register .main .input_view .open_eyes{
+  display: block;
+  width: 40rpx;
+  height: 26rpx;
+  float: right;
+  margin-top: 13rpx;
+}
+.register .main .confirm_reading{
+  padding-top: 30rpx;
+  border-bottom: 0;
+}
+.register .main .confirm_reading .nochecked{
+  display: block;
+  width: 32rpx;
+  height: 32rpx;
+  float: left;
+}
+.register .main .confirm_reading .agree{
+  float: left;
+  line-height: 32rpx;
+  margin-left: 6rpx;
+  height:24rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(1,1,2,1);
+}
+.register .main .confirm_reading .agreement{
+  float: left;
+  font-size:24rpx;
+  color: #3B84EB;
+}
+.register .main button{
+  height:88rpx;
+  border-radius:8rpx;
+  font-size:34rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:600;
+  text-align: center;
+  color:rgba(255,255,255,1);
+}
+.register .main .fail_register{
+  background-color:rgba(255,150,150,1);
+}
+.register .main .success_register{
+  background-color:rgba(245,73,73,1);
+}

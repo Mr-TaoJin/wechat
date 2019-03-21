@@ -1,1 +1,5 @@
 /* 测试 */
+.input-placeholder{
+  color: #C8C8D0;
+  font-size:30rpx;
+}

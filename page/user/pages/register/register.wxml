@@ -1,0 +1,30 @@
+<!--page/user/pages/register/register.wxml-->
+<!-- <text>page/user/pages/register/register.wxml</text> -->
+<view class='wrapper register'>
+  <view class='tit'>
+    <text class='font44'>您好,</text>
+    <text class='font44'>欢迎来到互联网风控平台</text>
+  </view>
+  <view class='main mt20'>
+    <view class='input_view'>
+      <input type='number' maxlength='11' placeholder='请输入您的手机号' placeholder-class='input_placeholder'></input>
+    </view>
+    <view class='input_view'>
+      <input type='number' maxlength='4' placeholder='请输入短信验证码' placeholder-class='input_placeholder'></input>
+      <text class='getCode code'>获取验证码</text>
+      <!-- <text class='sedCode code'>重新发送50s</text> -->
+    </view>
+    <view class='input_view'>
+      <input wx:if='{{look_password_flag}}' bindinput='getPassword' type='password' maxlength='16' placeholder='登录密码由6-16位数字和字母组合' placeholder-class='input_placeholder' data-name='password' value='{{password}}'></input>
+      <input wx:else bindinput='getPassword' type='text' maxlength='16' placeholder='登录密码由6-16位数字和字母组合' placeholder-class='input_placeholder' data-name='password' value='{{password}}'></input>
+      <image bindtap='look_password' class='open_eyes' src='../../../../images/user/open_eyes.png'></image>
+    </view>
+    <view class='confirm_reading input_view'>
+      <image class='nochecked' src='../../../../images/user/nochecked.png'></image>
+      <text class='agree'>已认真阅读并同意</text>
+      <text class='agreement'>《用户服务协议》、《用户隐私政策》</text>
+    </view>
+    <button class='fail_register'>注　册</button>
+    <!-- <button class='success_register'>注　册</button> -->
+  </view>
+</view>

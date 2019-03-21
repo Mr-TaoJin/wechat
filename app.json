@@ -34,7 +34,8 @@
     {
       "root": "page/user/",
       "pages": [
-        "pages/login/login"
+        "pages/login/login",
+        "pages/register/register"
       ]
     }
   ]
