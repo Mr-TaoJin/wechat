@@ -1,71 +1,141 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
+// page/loan_application/pages/no_account/no_account.js
+const app = getApp();
+const QQMapWX = require("../../../vendors/qqmap-wx-jssdk.min.js");
 Page({
+  /**
+   * 页面的初始数据
+   */
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    parms: { crglnamt: "300000", loanyrintrt: "4.85", trmuplmval: "12" },
+    location: { lat: '', lng: '' },
+    markers: [],
+    polyline: [{
+      points: [{
+        longitude: 113.3245211,
+        latitude: 23.10229
+      }, {
+        longitude: 113.324520,
+        latitude: 23.21229
+      }],
+      color: '#FF0000DD',
+      width: 2,
+      dottedLine: true
+    }]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  markertap(e) {
+    let markerId = e.markerId;
+    let latitude = '';
+    let longitude = '';
+    for (let v of this.data.markers) {
+      if (v.id == markerId) {
+        latitude =
+          wx.openLocation({
+            latitude: v.latitude,
+            longitude: v.longitude,
+            scale: 18,
+            name: v.address
+          })
+        return;
+      }
+    }
+  },
+  useQQSDK: function (keyword, location) {
+    let that = this;
+    // 实例化API核心类
+    var qqSDK = new QQMapWX({
+      key: 'TUPBZ-VWUK3-WSM3Z-32FNM-FAZVZ-27FLH' // 必填
+    });
+    // 调用接口
+    qqSDK.getSuggestion({
+      keyword: keyword,
+      location: location,
+      success: function (res) {
+        let markers = [];
+        res.data.forEach((v, index) => {
+          markers.push({
+            // iconPath: '',
+            id: index,
+            latitude: v.location.lat,
+            longitude: v.location.lng,
+            width: 25,
+            height: 35,
+            address: v.address
+          })
+        });
+        that.setData({
+          markers: markers
+        });
+      },
+      fail: function (res) {
+        // console.log(res, 'fail');
+      },
+      complete: function (res) {
+        // console.log(res, 'complete');
+      }
+    });
+  },
+  // 获取信息进行设置
+  get_location_info() {
+    let that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success(res) {
+        let location = String(res.latitude) + ',' + String(res.longitude);
+        that.data.location.lat = res.latitude;
+        that.data.location.lng = res.longitude;
+        that.setData({
+          "location.lat": res.latitude,
+          "location.lng": res.longitude
+        });
+        that.useQQSDK('厕所', location)
+      }
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  // getUserInfo: function(e) {
-  //   console.log(e)
-  //   app.globalData.userInfo = e.detail.userInfo
-  //   this.setData({
-  //     userInfo: e.detail.userInfo,
-  //     hasUserInfo: true
-  //   })
-  // },
-  bindGetUserInfo(e){
-    console.log(e)
-  },//跳转
-  jump(e) {
-    let page = e.currentTarget.dataset.page;
-    let url = '';
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.showModal({
+            title: '温馨提示',
+            content: '检测到您没打开地理位置权限，是否去设置打开?',
+            cancelColor: '#83838B',
+            confirmText: '确定',
+            confirmColor: '#F54949',
+            success(res) {
+              if (res.confirm) {
+                wx.openSetting({
+                  success: (res) => {
+                    if (res.authSetting['scope.userLocation']) {
+                      that.get_location_info();
+                    }
+                  }
+                });
+              } else if (res.cancel) {
 
-    switch (page) {
-      case 'login':
-        url = '/page/user/pages/login/login'
-        break;
-    }
-    if (url.match('tabBar')) {
-      wx.switchTab({ url })
-    } else {
-      wx.navigateTo({ url })
-    }
+              }
+            }
+          })
+        } else {
+          that.get_location_info();
+        }
+      }
+    });
+
   },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function () {
+    this.get_location_info();
+  }
 })
