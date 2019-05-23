@@ -59,7 +59,7 @@ Page({
             longitude: v.location.lng,
             width: 25,
             height: 35,
-            address: v.address
+            address: v.address,
           })
         });
         that.setData({
